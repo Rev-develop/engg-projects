@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "author": "Mary Nhel Sadiwa",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -108.6, "left": -83.6, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -4.76, "attrs": {} },
+    { "type": "wokwi-ir-receiver", "id": "ir1", "top": -260.55, "left": 161.42, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": 103.6, "left": 144, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": -219.3, "left": -52.1, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -42,
+      "left": -149.8,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 44.4,
+      "left": -197.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 217.2,
+      "left": -159.4,
+      "attrs": { "color": "yellow" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "led1:A", "bb1:17b.h", "red", [ "v0" ] ],
+    [ "led1:C", "esp:32", "red", [ "v0" ] ],
+    [ "led2:A", "esp:GND.2", "blue", [ "v0" ] ],
+    [ "esp:33", "led2:C", "blue", [ "h-129.41", "v0", "h-19.2", "v-28.8", "h-38.4" ] ],
+    [ "led3:A", "esp:GND.2", "cyan", [ "v0" ] ],
+    [ "led3:C", "esp:GND.1", "cyan", [ "v0" ] ],
+    [ "ultrasonic1:TRIG", "esp:14", "#8f4814", [ "v0" ] ],
+    [ "ultrasonic1:ECHO", "esp:VN", "#8f4814", [ "v0" ] ],
+    [ "ultrasonic1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "ir1:VCC", "bb1:tp.12", "violet", [ "v0" ] ],
+    [ "ir1:GND", "bb1:tn.12", "black", [ "v0" ] ],
+    [ "ir1:DAT", "esp:25", "green", [ "v0" ] ],
+    [ "ultrasonic1:VCC", "bb1:tn.2", "gold", [ "v0" ] ],
+    [ "servo1:PWM", "esp:26", "orange", [ "h0" ] ],
+    [ "servo1:V+", "bb1:tp.2", "red", [ "h0" ] ],
+    [ "servo1:GND", "bb1:tn.3", "#8f4814", [ "h0" ] ],
+    [ "esp:5V", "bb1:tp.1", "magenta", [ "h0" ] ],
+    [ "bb1:tn.11", "esp:GND.2", "green", [ "v0" ] ],
+    [ "esp:21", "bb1:bp.14", "", [ "$bb" ] ],
+    [ "esp:22", "bb1:17b.j", "", [ "$bb" ] ],
+    [ "esp:23", "bb1:17b.i", "", [ "$bb" ] ],
+    [ "esp:3V3", "bb1:7b.h", "", [ "$bb" ] ],
+    [ "esp:EN", "bb1:7b.i", "", [ "$bb" ] ],
+    [ "esp:VP", "bb1:7b.j", "", [ "$bb" ] ],
+    [ "esp:GND.2", "bb1:17b.h", "", [ "$bb" ] ],
+    [ "esp:GND.3", "bb1:bn.14", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
